@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maintenance_logs",
+  "info": {
+    "singularName": "maintenance-log",
+    "pluralName": "maintenance-logs",
+    "displayName": "Maintenance Log"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "action": {
+      "type": "string"
+    },
+    "technician": {
+      "type": "string"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stock-location.stock-location",
+      "inversedBy": "maintenancelogs"
+    }
+  }
+}

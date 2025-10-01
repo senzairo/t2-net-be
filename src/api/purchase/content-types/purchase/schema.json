@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchases",
+  "info": {
+    "singularName": "purchase",
+    "pluralName": "purchases",
+    "displayName": "Purchase"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "invoice_number": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime",
+      "required": true
+    },
+    "total_amount": {
+      "type": "decimal"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "supplier": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::supplier.supplier",
+      "inversedBy": "purchases"
+    },
+    "purchaseitems": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::purchase-item.purchase-item",
+      "mappedBy": "purchase"
+    }
+  }
+}

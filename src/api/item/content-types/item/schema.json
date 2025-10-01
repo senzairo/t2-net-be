@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "items",
+  "info": {
+    "singularName": "item",
+    "pluralName": "items",
+    "displayName": "Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "brand": {
+      "type": "string"
+    },
+    "model": {
+      "type": "string"
+    },
+    "serial_number": {
+      "type": "uid",
+      "targetField": "name",
+      "unique": true
+    },
+    "specification": {
+      "type": "text"
+    },
+    "unit_type": {
+      "type": "enumeration",
+      "enum": ["pcs", "roll", "box", "meter"]
+    },
+    "is_consumable": {
+      "type": "boolean",
+      "default": false
+    },
+    "itemstocks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item-stock.item-stock",
+      "mappedBy": "item"
+    },
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "items"
+    }
+  }
+}

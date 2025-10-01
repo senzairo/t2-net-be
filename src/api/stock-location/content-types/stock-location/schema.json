@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "stock_locations",
+  "info": {
+    "singularName": "stock-location",
+    "pluralName": "stock-locations",
+    "displayName": "Stock Location"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "address": {
+      "type": "text"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": ["warehouse", "office", "vehicle", "site"]
+    },
+    "itemstocks": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::item-stock.item-stock",
+      "mappedBy": "location"
+    },
+    "transactions": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::transaction.transaction",
+      "mappedBy": "location"
+    },
+    "maintenancelogs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maintenance-log.maintenance-log",
+      "mappedBy": "location"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "transactions",
+  "info": {
+    "singularName": "transaction",
+    "pluralName": "transactions",
+    "displayName": "Transaction"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "type": {
+      "type": "enumeration",
+      "enum": ["in", "out", "transfer", "maintenance", "damage", "lost"]
+    },
+    "quantity": {
+      "type": "integer"
+    },
+    "reference": {
+      "type": "string"
+    },
+    "date": {
+      "type": "datetime"
+    },
+    "notes": {
+      "type": "text"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stock-location.stock-location",
+      "inversedBy": "transactions"
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user"
+    }
+  }
+}

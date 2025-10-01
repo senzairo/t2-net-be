@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "purchase_items",
+  "info": {
+    "singularName": "purchase-item",
+    "pluralName": "purchase-items",
+    "displayName": "Purchase Item"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer"
+    },
+    "price": {
+      "type": "decimal"
+    },
+    "purchase": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::purchase.purchase"
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item"
+    }
+  }
+}

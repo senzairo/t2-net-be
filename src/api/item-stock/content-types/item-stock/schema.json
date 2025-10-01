@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "item_stocks",
+  "info": {
+    "singularName": "item-stock",
+    "pluralName": "item-stocks",
+    "displayName": "Item Stock"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "quantity": {
+      "type": "integer",
+      "default": 0
+    },
+    "min_stock": {
+      "type": "integer",
+      "default": 0
+    },
+    "item": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::item.item"
+    },
+    "location": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::stock-location.stock-location",
+      "inversedBy": "itemstocks"
+    }
+  }
+}
