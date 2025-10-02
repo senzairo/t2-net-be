@@ -9,10 +9,18 @@
   "options": {
     "draftAndPublish": true
   },
+  "pluginOptions": {},
   "attributes": {
     "type": {
       "type": "enumeration",
-      "enum": ["in", "out", "transfer", "maintenance", "damage", "lost"]
+      "enum": [
+        "in",
+        "out",
+        "transfer",
+        "maintenance",
+        "damage",
+        "lost"
+      ]
     },
     "quantity": {
       "type": "integer"

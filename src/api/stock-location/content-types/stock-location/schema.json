@@ -19,7 +19,12 @@
     },
     "type": {
       "type": "enumeration",
-      "enum": ["warehouse", "office", "vehicle", "site"]
+      "enum": [
+        "warehouse",
+        "office",
+        "vehicle",
+        "site"
+      ]
     },
     "itemstocks": {
       "type": "relation",
